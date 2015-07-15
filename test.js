@@ -3,9 +3,12 @@ var stringify = require('./')
 require('tape')(function(t) {
   t.equal(stringify({}), '{}', 'empty object')
 
-  t.equal(stringify([]), '[]', 'empty array')
-
   t.equal(stringify({ a: '1' }), '{"a":"1"}', 'simple object')
+
+  t.throws(
+    function() { stringify("") },
+    TypeError,
+    'rejects plain string')
 
   t.throws(
     function() { stringify({ a: false }) },
@@ -13,22 +16,22 @@ require('tape')(function(t) {
     'rejects boolean value')
 
   t.throws(
-    function() { stringify(1) },
+    function() { stringify({ a: 1 }) },
     TypeError,
     'rejects numeric')
 
   t.throws(
-    function() { stringify(Infinity) },
+    function() { stringify({a: Infinity }) },
     TypeError,
     'rejects Infinity')
 
   t.throws(
-    function() { stringify(null) },
+    function() { stringify({ a: null }) },
     TypeError,
     'rejects null')
 
   t.throws(
-    function() { stringify(NaN) },
+    function() { stringify({ a: NaN }) },
     TypeError,
     'rejects NaN')
 
