@@ -1,5 +1,5 @@
 function quote(argument) {
-  return ( '"' + argument.replace(/"/g, '\\"') + '"' ) }
+  return JSON.stringify(argument) }
 
 function list(start, values, end) {
   return ( start + values.join(',') + end ) }
