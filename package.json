@@ -1,0 +1,7 @@
+{ "name": "blok-stringify",
+  "version": "0.0.0",
+  "license": "MIT",
+  "devDependencies": {
+    "tape": "4.x" },
+  "scripts": {
+    "test": "tape test.js" } }
