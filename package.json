@@ -1,6 +1,9 @@
 { "name": "blok-stringify",
   "version": "0.0.0",
   "license": "MIT",
+  "dependencies": {
+    "is-array": "1.x",
+    "is-object": "1.x" },
   "devDependencies": {
     "tape": "4.x" },
   "scripts": {

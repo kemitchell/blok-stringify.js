@@ -1,3 +1,6 @@
+var isArray = require('is-array')
+var isObject = require('is-object')
+
 function quote(argument) {
   return JSON.stringify(argument) }
 
@@ -10,7 +13,7 @@ function isObject(argument) {
 function stringify(argument) {
   if (typeof argument === 'string') {
     return quote(argument) }
-   else if (Array.isArray(argument)) {
+   else if (isArray(argument)) {
      return list('[', argument.map(stringify), ']') }
    else if (isObject(argument)) {
      return list(
